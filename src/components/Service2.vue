@@ -2,15 +2,6 @@
 import { ref } from "vue";
 import mainPhoto from "../assets/images/service2.jpg";
 
-// ใช้ ref() สำหรับ state ที่ต้องการให้ reactive
-const imageLoaded = ref(false);
-
-import { onMounted } from "vue";
-
-onMounted(() => {
-  imageLoaded.value = true; // เปลี่ยนเป็น true เมื่อ component ถูก mounted
-});
-
 const items = [
   { id: 1, name: "1", des: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia." },
   { id: 2, name: "2", des: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia." },
@@ -53,9 +44,6 @@ const handleWheel = (e) => {
     scale.value -= 0.1;
   }
 };
-
-
-
 </script>
 
 <template>
@@ -181,18 +169,6 @@ const handleWheel = (e) => {
           <div class="img-shadow rounded-xl">
             <div class="owl-single no-dots owl-carousel">
               <div class="item">
-                <span class="number">{{ items[0].id }}/{{ total }}</span>
-                <img
-                v-if="imageLoaded"
-                  :src="mainPhoto"
-                  alt="Image"
-                  class="img-fluid"
-                  @click="openImage(mainPhoto)"
-                  style="cursor: zoom-in"
-                  loading="lazy"
-                />
-              </div>
-              <div class="item">
                 <span class="number">{{ items[1].id }}/{{ total }}</span>
                 <img
                   :src="mainPhoto"
@@ -204,6 +180,16 @@ const handleWheel = (e) => {
               </div>
               <div class="item">
                 <span class="number">{{ items[2].id }}/{{ total }}</span>
+                <img
+                  :src="mainPhoto"
+                  alt="Image"
+                  class="img-fluid"
+                  @click="openImage(mainPhoto)"
+                  style="cursor: zoom-in"
+                />
+              </div>
+              <div class="item">
+                <span class="number">{{ items[3].id }}/{{ total }}</span>
                 <img
                   :src="mainPhoto"
                   alt="Image"
