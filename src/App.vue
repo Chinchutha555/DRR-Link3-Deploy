@@ -54,6 +54,7 @@ onBeforeUnmount(() => {
   <Contact />
   <Footer />
 
+  <h1></h1>
 
 <Transition name="zoom-btn">
   <button
