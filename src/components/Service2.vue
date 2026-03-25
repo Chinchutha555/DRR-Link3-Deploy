@@ -169,6 +169,17 @@ const handleWheel = (e) => {
           <div class="img-shadow rounded-xl">
             <div class="owl-single no-dots owl-carousel">
               <div class="item">
+                <span class="number">{{ items[0].id }}/{{ total }}</span>
+                <img
+                  :src="mainPhoto"
+                  alt="Image"
+                  class="img-fluid"
+                  @click="openImage(mainPhoto)"
+                  style="cursor: zoom-in"
+                  :style="{ width: '100%', height: '100%' }"
+                />
+              </div>
+              <div class="item">
                 <span class="number">{{ items[1].id }}/{{ total }}</span>
                 <img
                   :src="mainPhoto"
@@ -180,16 +191,6 @@ const handleWheel = (e) => {
               </div>
               <div class="item">
                 <span class="number">{{ items[2].id }}/{{ total }}</span>
-                <img
-                  :src="mainPhoto"
-                  alt="Image"
-                  class="img-fluid"
-                  @click="openImage(mainPhoto)"
-                  style="cursor: zoom-in"
-                />
-              </div>
-              <div class="item">
-                <span class="number">{{ items[3].id }}/{{ total }}</span>
                 <img
                   :src="mainPhoto"
                   alt="Image"

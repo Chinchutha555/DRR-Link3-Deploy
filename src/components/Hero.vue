@@ -2,7 +2,7 @@
 import mainPhoto from "../assets/images/hero.svg";
 import { themeColor } from "../data/items";
 
-const heroHeading = "TEST DEPLOY NETLIFY";
+const heroHeading = "TEST DEPLOY";
 const buttonSeeFeature = "See Features";
 const buttonPricing = "Pricing";
 </script>
@@ -12,7 +12,7 @@ const buttonPricing = "Pricing";
     <div class="container">
       <div class="row align-items-center" style=" padding-bottom: 0;">
         <div class="col-12">
-          <div class="dots" ></div>
+          <!-- <div class="dots" ></div> -->
           <div class="row align-items-center">
             <div
               class="col-lg-7 ml-auto order-lg-2"

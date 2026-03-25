@@ -75,7 +75,7 @@ function youtubeVideoUrl() {
                 />
               </svg>
             </span> -->
-            <img :src="mainPhoto" alt="Image" class="img-fluid img-shadow rounded-xl" />
+            <img :src="mainPhoto" alt="Image" class="img-fluid img-shadow rounded-2xl" />
           <!-- </a> -->
         </div>
       </div>

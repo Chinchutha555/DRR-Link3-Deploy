@@ -8,8 +8,8 @@
           class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
           style="padding: 0; margin-top: 50px; margin-bottom: 100px"
         >
-          <div class="font-light sm:text-lg">
-            <h2 class="heading mb-4 text-gray-900" data-aos="fade-right">
+          <div>
+            <h2 class="heading mb-4" data-aos="fade-right">
               We didn't reinvent the wheel
             </h2>
             <p class="mb-4" data-aos="fade-right">
@@ -24,16 +24,29 @@
               problem solvers. Small enough to be simple and quick.
             </p>
           </div>
+
+           <!-- <div class="img-shadow rounded-xl">
+            <div class="owl-single no-dots owl-carousel">
+              <div class="item">
+                <span class="number">{{ items[0].id }}/{{ total }}</span>
+                <img
+                  :src="mainPhoto"
+                  alt="Image"
+                  class="img-fluid"
+                  @click="openImage(mainPhoto)"
+                  style="cursor: zoom-in"
+                />
+              </div> -->
           <div class="grid grid-cols-2 gap-6 mt-8">
             <img
-              class="w-full rounded-2xl"
+              class=" img-shadow rounded-3xl"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
               alt="office content 1"
             
                data-aos="zoom-in" data-aos-delay="200"
             />
             <img
-              class="mt-4 w-full lg:mt-10 rounded-2xl"
+              class=" lg:mt-10 img-shadow rounded-3xl"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
               alt="office content 2"
               data-aos="zoom-in" data-aos-delay="400"
