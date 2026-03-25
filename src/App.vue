@@ -41,6 +41,7 @@ onBeforeUnmount(() => {
   <Header />
   <Banner />
   <Hero />
+  <Blog />
   <Service1 />
   <Service2 />
   <Feature />

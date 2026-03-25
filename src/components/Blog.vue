@@ -1,5 +1,5 @@
 <script setup>
-const heading = "Our News";
+const heading = "ข่าวล่าสุด";
 const subHeading = "Far from the countries Vokalia and Consonantia";
 const blogItems = [
   {
