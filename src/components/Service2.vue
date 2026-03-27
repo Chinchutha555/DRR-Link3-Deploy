@@ -86,14 +86,14 @@ const handleWheel = (e) => {
             <h3 class="heading mb-0">{{ subHeading }}</h3>
           </div>
           <a
-            v-for="(item, index) in items"
-            :key="item.id"
-            href="#"
-            class="service link horizontal d-flex"
-            :class="{ active: index === 0 }"
-            data-aos="fade-left"
-            :data-aos-delay="index * 100"
-          >
+  v-for="(item, index) in items"
+  :key="item.id"
+  class="service link horizontal d-flex phase-card"
+  :class="{ active: index === 0 }"
+  data-aos="fade-left"
+  :data-aos-delay="index * 200"
+>
+
             <div class="service-icon mb-4" :class="item.colorClass">
               <!-- icon 1 -->
               <svg
@@ -111,6 +111,7 @@ const handleWheel = (e) => {
                 />
                 <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
               </svg>
+              
 
               <!-- icon 2 -->
               <svg
@@ -224,6 +225,134 @@ const handleWheel = (e) => {
 <style scoped>
 .clickable-image {
   cursor: zoom-in;
+}
+
+/* ===== left cards ===== */
+.phase-card {
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+.phase-card:hover {
+  transform: translateY(-4px);
+  border-color: #93c5fd;
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.1);
+  background: #ffffff;
+}
+
+.phase-card.active {
+  border-color: #93c5fd;
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.12);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.phase-card .service-icon {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 0 !important;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eff6ff;
+  color: #2563eb;
+  box-shadow: inset 0 0 0 1px rgba(147, 197, 253, 0.35);
+}
+
+.phase-card .service-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.phase-card .service-contents {
+  flex: 1;
+  min-width: 0;
+}
+
+.phase-card .service-contents h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0f172a;
+}
+
+.phase-card .service-contents p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #64748b;
+}
+
+.phase-card .service-icon.color-1 {
+  background: #d566b0;
+  color: #ffffff;
+}
+
+.phase-card .service-icon.color-2 {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.phase-card .service-icon.color-3 {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item img {
+  display: block;
+  margin: 0 auto;   /* จัดกลางแนวนอน */
+}
+
+.img-shadow {
+  padding: 24px 14px; /* เดิม 14px → เพิ่มบนล่าง */
+}
+/* image section คง logic เดิม แค่เก็บงานภาพให้ดูนุ่มขึ้น */
+.img-shadow {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+
+  display: flex;
+  align-items: center;     /* จัดกลางแนวตั้ง */
+  justify-content: center; /* จัดกลางแนวนอน */
+  min-height: 100%;
+}
+
+
+.number {
+  position: absolute;
+  bottom: 14px;          /* จาก top → bottom */
+  left: 50%;             /* ดันไปกลาง */
+  transform: translateX(-50%); /* จัดให้อยู่กลางจริง */
+
+  z-index: 2;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.75);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .image-modal {

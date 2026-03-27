@@ -52,8 +52,6 @@ const timelineItems = [
 </script>
 
 <template>
-
-    
   <section class="py-16 bg-white" style="margin-top: 100px">
     <div class="max-w-6xl mx-auto px-6">
       <!-- Header -->
@@ -63,10 +61,10 @@ const timelineItems = [
         data-aos-duration="900"
         data-aos-once="true"
       >
-        <h2 style="font-size: 38px; margin-bottom: 20px;">
+        <h2 style="font-size: 38px; margin-bottom: 20px">
           สถานะการดำเนินงานปัจจุบัน
         </h2>
-  
+
         <p class="max-w-2xl mx-auto leading-7">
           เรากำลังดำเนินการสำรวจภาคสนามและรับฟังความคิดเห็นจากทุกภาคส่วนอย่างเข้มข้น
           เพื่อให้ได้ข้อมูลที่แม่นยำและตอบโจทย์ต่อความต้องการของคนในพื้นที่มากที่สุด
@@ -101,12 +99,9 @@ const timelineItems = [
               <div
                 class="status-card rounded-3xl border-1 p-6 transition duration-300 hover:-translate-y-1"
                 :class="{
-                  'bg-blue-50 border-blue-400':
-                    item.color === 'blue',
-                  'bg-green-50 border-green-400':
-                    item.color === 'green',
-                  'bg-slate-50 border-slate-300':
-                    item.color === 'gray',
+                  'bg-blue-50 border-blue-400': item.color === 'blue',
+                  'bg-green-50 border-green-400': item.color === 'green',
+                  'bg-slate-50 border-slate-300': item.color === 'gray',
                 }"
               >
                 <div class="flex items-start justify-between mb-4">
@@ -167,12 +162,9 @@ const timelineItems = [
               <div
                 class="status-card rounded-3xl border-1 p-6 transition duration-300 hover:-translate-y-1"
                 :class="{
-                  'bg-blue-50 border-blue-400':
-                    item.color === 'blue',
-                  'bg-green-50 border-green-400':
-                    item.color === 'green',
-                  'bg-slate-50 border-slate-300':
-                    item.color === 'gray',
+                  'bg-blue-50 border-blue-400': item.color === 'blue',
+                  'bg-green-50 border-green-400': item.color === 'green',
+                  'bg-slate-50 border-slate-300': item.color === 'gray',
                 }"
               >
                 <div class="flex items-start justify-between mb-4">
@@ -206,8 +198,18 @@ const timelineItems = [
 </template>
 
 <style scoped>
+
+.status-card{
+    transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 76, 255, 0.04);
+}
+
 .status-card:hover {
   transform: translateY(-4px);
-  /* border-color: #93c5fd !important; */
   box-shadow: 0 14px 30px rgba(37, 99, 235, 0.1);
-}</style>
+}
+</style>

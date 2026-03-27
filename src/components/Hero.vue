@@ -41,7 +41,7 @@ const buttonPricing = "Pricing";
                       background-color: rgba(64, 123, 255, 0.07);
                       color: #407bff;
                     "
-                    >Link and Place</span
+                    ><br>Link and Place</span
                   >
                   มุ่งเน้นการพัฒนา โครงข่ายถนนระดับที่ 3
                   ซึ่งเป็นเส้นทางเชื่อมโยงเมือง แหล่งเศรษฐกิจ การท่องเที่ยว

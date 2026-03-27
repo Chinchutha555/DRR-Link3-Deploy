@@ -77,18 +77,14 @@ const closeModal = () => {
 };
 
 const currentIndex = ref(0);
-
 const itemsPerPage = 3;
 
-// จำนวนหน้า (dot)
 const totalPages = computed(() => Math.ceil(blogItems.length / itemsPerPage));
-
 const isAtStart = computed(() => currentIndex.value === 0);
-
 const isAtEnd = computed(() => currentIndex.value === totalPages.value - 1);
 
 const next = () => {
-  if (isAtEnd.value) return; // กันกดตอนสุด
+  if (isAtEnd.value) return;
   currentIndex.value++;
   scrollToCurrent();
 };
@@ -114,11 +110,11 @@ const scrollToCurrent = () => {
 </script>
 
 <template>
-  <div class="untree_co-section" id="testimonials-section">
+  <div class="untree_co-section news-section" id="testimonials-section">
     <div class="container">
       <div class="row">
         <div class="col-12 mb-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="section-header">
             <div class="text-left">
               <span class="caption" :style="[{ color: themeColor }]">
                 {{ heading }}
@@ -153,7 +149,7 @@ const scrollToCurrent = () => {
                   </svg>
                 </span>
               </a>
-&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;
               <a
                 href="#"
                 class="custom-next"
@@ -193,50 +189,32 @@ const scrollToCurrent = () => {
               :key="index"
               class="news-slide"
             >
-              <div
-                class="news-item rounded-2xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition bg-white"
-                @click="openModal(item)"
-              >
-                <div class="w-full h-[220px] overflow-hidden">
-                  <img
-                    :src="item.photo"
-                    alt="Image"
-                    class="w-full h-full object-cover"
-                  />
+              <article class="news-card" @click="openModal(item)">
+                <div class="news-card-media">
+                  <img :src="item.photo" alt="Image" class="news-card-image" />
                 </div>
 
-                <div class="p-4">
-                  <div
-                    class="flex items-center gap-2 text-sm text-gray-500 mb-2"
-                  >
-                    <span
-                      class="inline-block px-2 py-1 rounded-full bg-blue-50 text-blue-600 font-medium"
-                    >
-                      {{ item.category }}
-                    </span>
-                    <span>•</span>
-                    <span>{{ item.date }}</span>
+                <div class="news-card-body">
+                  <div class="news-meta">
+                    <span class="news-badge">{{ item.category }}</span>
+                    <span class="news-meta-dot">•</span>
+                    <span class="news-date">{{ item.date }}</span>
                   </div>
 
-                  <h3
-                    class="text-lg font-bold text-gray-900 leading-snug mb-2 line-clamp-2"
-                  >
+                  <h3 class="news-title">
                     {{ item.title }}
                   </h3>
 
-                  <p class="text-sm text-gray-600 leading-6 mb-4 line-clamp-3">
+                  <p class="news-detail">
                     {{ item.detail }}
                   </p>
 
-                  <div class="flex items-center justify-between">
-                    <div class="text-sm text-gray-500">โดย {{ item.name }}</div>
-
-                    <span class="text-blue-600 font-semibold text-sm">
-                      อ่านเพิ่มเติม →
-                    </span>
+                  <div class="news-footer">
+                    <div class="news-author">โดย {{ item.name }}</div>
+                    <span class="news-link">อ่านเพิ่มเติม →</span>
                   </div>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
 
@@ -315,14 +293,26 @@ const scrollToCurrent = () => {
 </template>
 
 <style scoped>
+.news-section {
+  background: transparent;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
 .news-slider {
   display: flex;
-  gap: 20px;
+  gap: 28px;
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-bottom: 8px;
+  padding: 4px 4px 14px;
 }
 
 .news-slider::-webkit-scrollbar {
@@ -330,11 +320,126 @@ const scrollToCurrent = () => {
 }
 
 .news-slide {
-  flex: 0 0 calc((100% - 40px) / 3);
+  flex: 0 0 calc((100% - 56px) / 3);
+  display: flex;
 }
 
-.news-item {
-  height: 100%;
+.news-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 76, 255, 0.04);
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  border-color: #93c5fd;
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.1);
+}
+
+.news-card-media {
+  padding: 16px 16px 0;
+  flex-shrink: 0;
+}
+
+.news-card-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+.news-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 20px 20px;
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #64748b;
+  flex-wrap: wrap;
+}
+
+.news-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.news-meta-dot {
+  color: #94a3b8;
+}
+
+.news-date {
+  color: #64748b;
+}
+
+.news-title {
+  margin: 0 0 12px;
+  font-size: 21px;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #0f172a;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 56px;
+}
+
+.news-detail {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #64748b;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 76px;
+}
+
+.news-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.news-author {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.news-link {
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 .custom-prev,
@@ -354,20 +459,10 @@ const scrollToCurrent = () => {
 
 .custom-prev:hover,
 .custom-next:hover {
-  background: #f3f4f6;
+  background: #f8fafc;
+  border-color: #93c5fd;
   color: #111827;
-}
-
-@media (max-width: 991px) {
-  .news-slide {
-    flex: 0 0 calc((100% - 20px) / 2);
-  }
-}
-
-@media (max-width: 767px) {
-  .news-slide {
-    flex: 0 0 100%;
-  }
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
 }
 
 .dots {
@@ -397,5 +492,39 @@ const scrollToCurrent = () => {
   opacity: 0.4;
   pointer-events: none;
   cursor: not-allowed;
+}
+
+@media (max-width: 991px) {
+  .news-slide {
+    flex: 0 0 calc((100% - 28px) / 2);
+  }
+
+  .news-card-image {
+    height: 220px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .news-slide {
+    flex: 0 0 100%;
+  }
+
+  .news-card-image {
+    height: 200px;
+  }
+
+  .news-title {
+    font-size: 20px;
+    min-height: auto;
+  }
+
+  .news-detail {
+    min-height: auto;
+  }
 }
 </style>

@@ -172,10 +172,12 @@ const documents = [
   background: #ffffff;
   text-decoration: none;
 
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+ transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 76, 255, 0.04);
 }
 
 /* hover แบบ dashboard สะอาด */
