@@ -1,7 +1,6 @@
 <script setup>
 import { themeColor } from "../data/items";
 import personPhoto from "../assets/images/person_1.jpg";
-// import mainPhoto from "../assets/images/about.jpg";
 
 const service1Heading = "บทบาทของโครงข่ายถนนระดับที่ 3";
 const service1SubHeading = "ที่มาและความสำคัญ";
@@ -35,7 +34,8 @@ function youtubeVideoUrl() {
               โดยเฉพาะ โครงข่ายถนนระดับที่ 3 ซึ่งมีความสำคัญอย่างยิ่งในฐานะ
               “โครงข่ายสายรองที่เชื่อมโยงพื้นที่สำคัญในระดับจังหวัด”
             </p>
-
+<hr>
+<br>
             <span
               class="caption mb-4"
               data-aos="fade-up"
@@ -70,7 +70,7 @@ function youtubeVideoUrl() {
           data-aos="fade-up"
           data-aos-delay="400"
         >
-          <img :src="mainPhoto" alt="Image" class="img-fluid" />
+          <img src="../assets/images/Seminar.png" alt="Image" class="img-fluid" />
         </div>
       </div>
     </div>

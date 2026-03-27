@@ -27,8 +27,9 @@ import logo from "../assets/images/logo_DRR.svg";
               <li><a href="#" class="nav-link">Menu Three</a></li>
             </ul>
           </li> -->
-          <li><a href="#features-section" class="nav-link">ฟีเจอร์</a></li>
-          <li><a href="#pricing-section" class="nav-link">ราคา</a></li>
+          <li><a href="#features-section" class="nav-link">ที่มาและความสำคัญ</a></li>
+           <li><a href="#objective-section" class="nav-link">วัตถุประสงค์</a></li>
+          <li><a href="#pricing-section" class="nav-link">ความคืบหน้าโครงการ</a></li>
           <li><a href="#about-section" class="nav-link">เกี่ยวกับ</a></li>
           <li><a href="#contact-section" class="nav-link">ติดต่อ</a></li>
         </ul>

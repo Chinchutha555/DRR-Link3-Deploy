@@ -2,39 +2,44 @@
 const items = [
   {
     iconBg: "background-color: #6fe7dd",
-    title: "Grow Your Business",
+    title: "เสนอแนะตัวชี้วัด",
     description:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+      "เพื่อเสนอแนะตัวชี้วัดสำหรับการประเมินศักยภาพของถนนโครงข่ายสายรองใน 6 ด้าน ได้แก่",
   },
   {
     iconBg: "background-color: #ffc93c",
-    title: "Build Products",
+    title: "สำรวจและจัดทำแผนที่",
     description:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+      "เพื่อสำรวจและจัดทำแผนที่แบบเคลื่อนที่ สำหรับการจัดเก็บข้อมูลถนนบนแนวเส้นทางโครงข่ายสายรอง โดยใช้เทคโนโลยี Mobile Mapping System: MMS",
   },
   {
     iconBg: "background-color: #f73859",
-    title: "Success Each Day",
+    title: "ประเมินกิจกรรมงานบำรุง",
     description:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+      "เพื่อประเมินกิจกรรมที่ครอบคลุมงานบำรุง งานอำนวยความปลอดภัย และงานก่อสร้าง และความคุ้มค่าทางเศรษฐศาสตร์ ",
   },
   {
     iconBg: "background-color: #407BFF",
-    title: "Bring Ideas to Life",
+    title: "จัดทำแผนแม่บท",
     description:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+      "เพื่อจัดทำแผนแม่บทการพัฒนาโครงข่ายสายรอง และรายงานสรุปข้อมูลโครงการ (Factsheet) ซึ่งเป็นการรวบรวมข้อมูล โดยเสนอกรอบแนวคิดเชิงหลักการ (Conceptual Design) สำหรับการออกแบบถนนที่สอดคล้องตามบทบาททั้ง 4 ด้าน ",
   },
 ];
 </script>
 <template>
-  <div class="untree_co-section">
+  <div class="untree_co-section" id="objective-section">
     <div class="container">
+          <h3 class="heading text-center" data-aos="fade-up" data-aos-delay="100" style="margin-bottom: 60px;">
+        วัตถุประสงค์
+      </h3>
       <div class="row">
+        
         <div
           class="col-md-6 mb-4 mb-lg-0 col-lg-3"
           data-aos="fade-up"
           data-aos-delay="0"
         >
+  
           <div class="service">
             <div class="service-icon color-1 mb-4" :style="[items[0].iconBg]">
               <svg
@@ -55,6 +60,14 @@ const items = [
             <div class="service-contents">
               <h3>{{ items[0].title }}</h3>
               <p>{{ items[0].description }}</p>
+                <ul class="llist-disc" style="font-size: 14px;">
+                <li>1) สนับสนุนการพัฒนารูปแบบถนนโครงข่ายการขนส่งสินค้า</li>
+                <li>2) สนับสนุนการเข้าถึงแหล่งท่องเที่ยว </li>
+                <li>3) สนับสนุนการขยายตัวเศรษฐกิจการค้าในย่านชุมชน </li>
+                <li>4) สนับสนุนการเข้าถึงโครงข่ายการขนส่งรูปแบบอื่น </li>
+                <li>5) เขตทางที่เพียงพอต่อการพัฒนาในอนาคต</li>
+                <li>6) การได้มาซึ่งถนนที่ทำให้เป็นโครงข่ายที่สมบูรณ์</li>
+              </ul>
             </div>
           </div>
         </div>

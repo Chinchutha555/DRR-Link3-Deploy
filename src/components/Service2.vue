@@ -1,14 +1,40 @@
 <script setup>
 import { ref } from "vue";
-import mainPhoto from "../assets/images/service2.jpg";
+import short from "../assets/images/short.png";
+import medium from "../assets/images/medium.png";
+import long from "../assets/images/long.png";
+
+const heading = "Phase 1";
+const subHeading = "ผลการศึกษา";
 
 const items = [
-  { id: 1, name: "1", des: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia." },
-  { id: 2, name: "2", des: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia." },
-  { id: 3, name: "3", des: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia." },
-  { id: 4, name: "4", des: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia." },
+  {
+    id: 1,
+    name: "ระยะสั้น",
+    des: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.",
+    colorClass: "color-1",
+    icon: "app-indicator",
+    photo: short,
+  },
+  {
+    id: 2,
+    name: "ระยะกลาง",
+    des: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.",
+    colorClass: "color-2",
+    icon: "arrow-repeat",
+    photo: medium,
+  },
+  {
+    id: 3,
+    name: "ระยะยาว",
+    des: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.",
+    colorClass: "color-3",
+    icon: "briefcase",
+    photo: long,
+  },
 ];
-const total = 4;
+
+const total = items.length;
 
 const showModal = ref(false);
 const selectedImage = ref(null);
@@ -50,15 +76,28 @@ const handleWheel = (e) => {
   <div class="untree_co-section bg-light">
     <div class="container">
       <div class="row justify-content-between">
+        <!-- LEFT -->
+
         <div class="col-lg-5 order-lg-2 js-custom-dots">
+          <div class="text-right" style="margin-bottom: 30px">
+            <span class="caption" :style="[{ color: themeColor }]">
+              {{ heading }}
+            </span>
+            <h3 class="heading mb-0">{{ subHeading }}</h3>
+          </div>
           <a
+            v-for="(item, index) in items"
+            :key="item.id"
             href="#"
-            class="service link horizontal d-flex active"
+            class="service link horizontal d-flex"
+            :class="{ active: index === 0 }"
             data-aos="fade-left"
-            data-aos-delay="0"
+            :data-aos-delay="index * 100"
           >
-            <div class="service-icon color-1 mb-4">
+            <div class="service-icon mb-4" :class="item.colorClass">
+              <!-- icon 1 -->
               <svg
+                v-if="item.icon === 'app-indicator'"
                 class="bi bi-app-indicator"
                 width="1em"
                 height="1em"
@@ -72,20 +111,10 @@ const handleWheel = (e) => {
                 />
                 <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
               </svg>
-            </div>
-            <div class="service-contents">
-              <h3>{{ items[0].name }}</h3>
-              <p>{{ items[0].des }}</p>
-            </div>
-          </a>
-          <a
-            href="#"
-            class="service link horizontal d-flex"
-            data-aos="fade-left"
-            data-aos-delay="100"
-          >
-            <div class="service-icon color-2 mb-4">
+
+              <!-- icon 2 -->
               <svg
+                v-else-if="item.icon === 'arrow-repeat'"
                 class="bi bi-arrow-repeat"
                 width="1em"
                 height="1em"
@@ -102,20 +131,10 @@ const handleWheel = (e) => {
                   d="M8 3a4.995 4.995 0 0 0-4.192 2.273.5.5 0 0 1-.837-.546A6 6 0 0 1 14 8a.5.5 0 0 1-1.001 0 5 5 0 0 0-5-5zM2.5 7.5A.5.5 0 0 1 3 8a5 5 0 0 0 9.192 2.727.5.5 0 1 1 .837.546A6 6 0 0 1 2 8a.5.5 0 0 1 .501-.5z"
                 />
               </svg>
-            </div>
-            <div class="service-contents">
-              <h3>{{ items[1].name }}</h3>
-              <p>{{ items[1].des }}</p>
-            </div>
-          </a>
-          <a
-            href="#"
-            class="service link horizontal d-flex"
-            data-aos="fade-left"
-            data-aos-delay="200"
-          >
-            <div class="service-icon color-3 mb-4">
+
+              <!-- icon 3 -->
               <svg
+                v-else-if="item.icon === 'briefcase'"
                 class="bi bi-briefcase"
                 width="1em"
                 height="1em"
@@ -132,20 +151,10 @@ const handleWheel = (e) => {
                   d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5v2.384l-7.614 2.03a1.5 1.5 0 0 1-.772 0L0 6.884V4.5zM1.5 4a.5.5 0 0 0-.5.5v1.616l6.871 1.832a.5.5 0 0 0 .258 0L15 6.116V4.5a.5.5 0 0 0-.5-.5h-13zM5 2.5A1.5 1.5 0 0 1 6.5 1h3A1.5 1.5 0 0 1 11 2.5V3h-1v-.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V3H5v-.5z"
                 />
               </svg>
-            </div>
-            <div class="service-contents">
-              <h3>{{ items[2].name }}</h3>
-              <p>{{ items[2].des }}</p>
-            </div>
-          </a>
-          <a
-            href="#"
-            class="service link horizontal d-flex"
-            data-aos="fade-left"
-            data-aos-delay="300"
-          >
-            <div class="service-icon color-4 mb-4">
+
+              <!-- icon 4 -->
               <svg
+                v-else
                 class="bi bi-collection"
                 width="1em"
                 height="1em"
@@ -159,53 +168,25 @@ const handleWheel = (e) => {
                 />
               </svg>
             </div>
+
             <div class="service-contents">
-              <h3>{{ items[3].name }}</h3>
-              <p>{{ items[3].des }}</p>
+              <h3>{{ item.name }}</h3>
+              <p>{{ item.des }}</p>
             </div>
           </a>
         </div>
+
+        <!-- RIGHT -->
         <div class="col-lg-7">
           <div class="img-shadow rounded-xl">
             <div class="owl-single no-dots owl-carousel">
-              <div class="item">
-                <span class="number">{{ items[0].id }}/{{ total }}</span>
+              <div v-for="item in items" :key="item.id" class="item">
+                <span class="number">{{ item.id }}/{{ total }}</span>
                 <img
-                  :src="mainPhoto"
+                  :src="item.photo"
                   alt="Image"
-                  class="img-fluid"
-                  @click="openImage(mainPhoto)"
-                  style="cursor: zoom-in"
-                />
-              </div>
-              <div class="item">
-                <span class="number">{{ items[1].id }}/{{ total }}</span>
-                <img
-                  :src="mainPhoto"
-                  alt="Image"
-                  class="img-fluid"
-                  @click="openImage(mainPhoto)"
-                  style="cursor: zoom-in"
-                />
-              </div>
-              <div class="item">
-                <span class="number">{{ items[2].id }}/{{ total }}</span>
-                <img
-                  :src="mainPhoto"
-                  alt="Image"
-                  class="img-fluid"
-                  @click="openImage(mainPhoto)"
-                  style="cursor: zoom-in"
-                />
-              </div>
-              <div class="item">
-                <span class="number">{{ items[3].id }}/{{ total }}</span>
-                <img
-                  :src="mainPhoto"
-                  alt="Image"
-                  class="img-fluid"
-                  @click="openImage(mainPhoto)"
-                  style="cursor: zoom-in"
+                  class="img-fluid clickable-image"
+                  @click="openImage(item.photo)"
                 />
               </div>
             </div>
@@ -213,27 +194,31 @@ const handleWheel = (e) => {
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Modal -->
- <div
-  v-if="showModal"
-  class="image-modal"
-  @click.self="closeImage"
-  @wheel.prevent="handleWheel"
->
-  <div class="modal-toolbar">
-    <button type="button" @click.stop="zoomOut">−</button>
-    <button type="button" @click.stop="zoomIn">+</button>
-    <button type="button" class="close-btn" @click.stop="closeImage">✕</button>
-  </div>
+    <!-- Modal -->
+    <div
+      v-if="showModal"
+      class="image-modal"
+      @click.self="closeImage"
+      @wheel.prevent="handleWheel"
+    >
+      <div class="modal-toolbar">
+        <button type="button" @click.stop="zoomOut">−</button>
+        <button type="button" @click.stop="zoomIn">+</button>
+        <button type="button" @click.stop="resetZoom">รีเซ็ต</button>
+        <button type="button" class="close-btn" @click.stop="closeImage">
+          ✕
+        </button>
+      </div>
 
-  <img
-    :src="selectedImage"
-    class="modal-img"
-    :style="{ transform: `scale(${scale})` }"
-  />
-</div>
+      <img
+        :src="selectedImage"
+        alt="Preview"
+        class="modal-img"
+        :style="{ transform: `scale(${scale})` }"
+      />
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -249,7 +234,8 @@ const handleWheel = (e) => {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  overflow: auto;
+  overflow: hidden;
+  cursor: grab;
 }
 
 .modal-toolbar {
@@ -278,32 +264,11 @@ const handleWheel = (e) => {
 .modal-img {
   max-width: 90%;
   max-height: 90%;
-  transition: transform 0.2s ease;
-  transform-origin: center center;
   user-select: none;
+  transition: transform 0.15s ease;
+  transform-origin: center center;
   cursor: default;
 }
-.image-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  cursor: grab;
-}
-
-.modal-img {
-  max-width: 90%;
-  max-height: 90%;
-  user-select: none;
-  transition: transform 0.05s ease;
-}
-
 
 @keyframes zoomIn {
   from {

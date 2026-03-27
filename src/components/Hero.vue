@@ -27,7 +27,7 @@ const buttonPricing = "Pricing";
                 class="heading leading-loose"
                 data-aos="fade-up"
                 data-aos-delay="0"
-                style="font-size: 40px"
+                style="font-size: 41px"
               >
                 <p style="margin-bottom: 10px">โครงการศึกษาและจัดทำ</p>
                 <p style="margin-bottom: 10px">แผนแม่บทการพัฒนา</p>
@@ -48,24 +48,6 @@ const buttonPricing = "Pricing";
                   และระบบขนส่งหลักภายในจังหวัด
                 </p>
               </div>
-              <!-- <p data-aos="fade-up" data-aos-delay="200">
-                <a
-                  href="#features-section"
-                  class="btn btn-primary smoothscroll"
-                  style="margin-right: 15px"
-                  :style="[
-                    { background: themeColor },
-                    { borderColor: themeColor },
-                  ]"
-                  >{{ buttonSeeFeature }}</a
-                >
-                <a
-                  href="#pricing-section"
-                  class="btn btn-outline-primary smoothscroll pricing"
-                  :style="[{ color: themeColor }, { borderColor: themeColor }]"
-                  >{{ buttonPricing }}</a
-                >
-              </p> -->
             </div>
           </div>
         </div>
